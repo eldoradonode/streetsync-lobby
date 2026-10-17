@@ -1,0 +1,54 @@
+/* Rooms and direct messages: the message list, the composer, the host tools. */
+#chat,#thread{flex:1;min-height:0;display:flex;flex-direction:column}
+#log,#tlog{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:var(--s2);padding-block:var(--s4)}
+#log,#tlog,#send,#tsend,#replybar,#roomMeta,#tbar{padding-inline:max(var(--s4),calc((100% - var(--w-mid))/2))}
+
+/* messages */
+.m{border-radius:var(--rs);padding:6px 10px;line-height:1.45}
+@media (hover:hover){.m:hover{background:rgba(147,163,186,.05)}}
+.m.me{background:rgba(0,217,232,.06)}
+.row:has(>.av){align-items:flex-start;gap:var(--s3)}
+.row:has(>.av)>.av{margin-top:4px}
+.m .head{gap:var(--s2);margin-bottom:1px}
+.m time{font-size:var(--fs-xs);color:var(--faint)}
+.quote{border-radius:var(--rs);background:var(--panel)}
+
+/* composer */
+#send,#tsend{display:flex;align-items:center;gap:var(--s2);padding-top:var(--s3);padding-bottom:calc(var(--s3) + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+#send input,#tsend input{border-radius:var(--pill);background:var(--panel);padding:10px var(--s4);font-size:16px}
+#send button,#tsend button{border-radius:var(--pill);padding-inline:var(--s5);flex:none}
+#replybar{padding-block:var(--s2);background:var(--panel);border-radius:0}
+#roomMeta{padding-block:var(--s2);background:transparent;border-bottom:0;color:var(--mute);font-size:var(--fs-sm);text-align:center}
+
+/* host tools: a panel that opens to a small form grid */
+#hostTools{width:calc(100% - 2 * var(--s4));max-width:var(--w-mid);margin:var(--s3) auto 0;padding:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);flex:none}
+#hostTools summary{display:flex;align-items:center;gap:var(--s2);min-height:44px;padding:var(--s2) var(--s4);color:var(--text);font-weight:650;list-style:none;cursor:pointer}
+#hostTools summary::-webkit-details-marker{display:none}
+#hostTools summary::before{content:"";width:7px;height:7px;margin:0 6px 2px 2px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);transition:transform .15s}
+#hostTools[open] summary::before{transform:rotate(45deg)}
+#hostTools[open] summary{border-bottom:1px solid var(--line)}
+#hostTools .htools{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);padding:var(--s4)}
+#hostTools .hfield{display:flex;flex-direction:column;gap:6px;min-width:0}
+#hostTools .flabel{font-size:var(--fs-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+#hostTools .hint{font-size:var(--fs-sm)}
+#hostTools .danger{border-top:1px solid var(--line);padding-top:var(--s3)}
+#inviteCode{letter-spacing:.2em;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+@media (min-width:700px){
+  #hostTools .htools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #hostTools .htools>.danger,#hostTools .htools>.hint{grid-column:1/-1}
+}
+
+/* direct messages */
+#tbar{padding-block:var(--s3);background:var(--panel2)}
+.dm{max-width:min(78%,520px)}
+.dm .bubble{border-radius:var(--r) var(--r) var(--r) 4px;background:var(--panel);border-color:var(--line);padding:9px var(--s3)}
+.dm.mine .bubble{background:var(--accent-soft);border-color:var(--accent-line);border-radius:var(--r) var(--r) 4px var(--r)}
+
+/* messages list (inbox) */
+#inboxTabs{background:var(--bg);border-bottom:1px solid var(--line)}
+#inboxTabs button{min-height:44px;padding:var(--s3) var(--s4);font-size:var(--fs-md)}
+.plist{gap:var(--s2)}
+.plist li{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2) var(--s3);transition:border-color .15s,background .15s}
+.plist li:hover{border-color:var(--line2)}
+.chatrow{min-height:52px;gap:var(--s3)}
+.chatrow:hover:not(:disabled){filter:none}

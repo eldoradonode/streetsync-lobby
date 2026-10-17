@@ -1,0 +1,20 @@
+/* STREETSYNC design tokens. Every screen reads colours, spacing, radii and type from here.
+   New screens should use these variables and the primitives in components.css, not their own numbers. */
+:root{
+  /* colour: deep navy base, cyan as the one primary accent, violet used sparingly */
+  --bg:#070C16;--panel:#0F1828;--panel2:#0B1220;--panel3:#142038;--input:#0A1322;
+  --line:#1B2940;--line2:#2A3B58;
+  --accent:#00D9E8;--accent-ink:#03141B;--accent-soft:rgba(0,217,232,.12);--accent-line:rgba(0,217,232,.45);
+  --violet:#8B5CF6;--violet-soft:rgba(139,92,246,.14);
+  --text:#F2F6FC;--mute:#93A3BA;--faint:#5B6B82;
+  --bad:#F87171;--green:#34D399;--amber:#FBBF24;
+  /* type scale */
+  --fs-xs:11px;--fs-sm:13px;--fs-md:15px;--fs-lg:18px;--fs-xl:24px;
+  /* spacing scale */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;
+  /* shape */
+  --r:14px;--rs:10px;--rl:18px;--pill:999px;
+  --shadow:0 12px 40px rgba(0,0,0,.45);
+  /* layout */
+  --nav-w:236px;--bar-h:56px;--w-wide:1120px;--w-mid:820px;--w-read:760px;
+}
