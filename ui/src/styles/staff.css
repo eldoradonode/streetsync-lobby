@@ -1,0 +1,28 @@
+/* Admin console and moderator dashboard. Same parts as the rest of the app, but a different look on purpose,
+   so nobody mistakes where they are: rose for admin, teal for moderators. */
+#shell[data-area=admin]{--accent:#FB7185;--accent-ink:#2A0A12;--accent-soft:rgba(251,113,133,.12);--accent-line:rgba(251,113,133,.45);--bg:#0A0810;--panel:#151126;--panel2:#0F0B1B;--panel3:#1D1733;--line:#2A2140;--line2:#3B2F5C}
+#shell[data-area=mod]{--accent:#2DD4BF;--accent-ink:#03231F;--accent-soft:rgba(45,212,191,.12);--accent-line:rgba(45,212,191,.45);--bg:#050E0E;--panel:#0C1A19;--panel2:#08130F;--panel3:#12252A;--line:#16302D;--line2:#244541}
+#shell[data-area] .screen header{box-shadow:inset 0 3px 0 var(--accent)}
+#shell[data-area] #tabs{background:var(--panel2)}
+.side-brand{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.areatag{font-size:10px;letter-spacing:.16em;font-weight:800;color:var(--accent);border:1px solid var(--accent-line);border-radius:var(--pill);padding:2px 9px;background:var(--accent-soft)}
+#tabs .exit{margin-top:auto}
+.staffnav{display:none;flex-direction:column;gap:var(--s1);margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
+.navlabel{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--faint);font-weight:700;padding:0 var(--s3) var(--s1)}
+@media (min-width:900px){
+  .staffnav{display:flex}
+  #tabs{overflow-y:auto}
+}
+@media (max-width:899px){
+  #shell.inarea #tabs{display:none}
+}
+
+.staffbtn{display:inline-flex;align-items:center;gap:var(--s2)}
+.staffbtn.admin{background:rgba(251,113,133,.14);color:#FDA4AF;border:1px solid rgba(251,113,133,.45)}
+.staffbtn.mod{background:rgba(45,212,191,.12);color:#5EEAD4;border:1px solid rgba(45,212,191,.45)}
+.staffbtn:hover:not(:disabled){filter:brightness(1.15)}
+#tabs .staffbtn{background:transparent;border:1px solid transparent}
+#tabs .staffbtn.admin{color:#FDA4AF}
+#tabs .staffbtn.mod{color:#5EEAD4}
+#tabs .staffbtn:hover:not(:disabled){background:rgba(147,163,186,.08);filter:none}
+

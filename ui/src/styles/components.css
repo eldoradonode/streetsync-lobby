@@ -1,0 +1,91 @@
+/* Reusable pieces. New screens should be built from these. */
+
+/* text helpers */
+.hint{color:var(--mute);font-size:var(--fs-sm);line-height:1.45;margin:0;font-weight:400}
+.eyebrow,.sechead h3,#communityHead h2,#inbox h2{margin:0;font-size:var(--fs-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.pagehead{display:flex;flex-direction:column;gap:2px;padding-bottom:var(--s1)}
+.pagehead h2{margin:0;font-size:var(--fs-xl);font-weight:700;letter-spacing:-.02em}
+.pagehead p{margin:0;color:var(--mute);font-size:var(--fs-md)}
+.sechead{display:flex;align-items:center;justify-content:space-between;margin-top:var(--s2)}
+
+/* buttons and fields */
+button{border-radius:var(--rs);font-weight:600;padding:10px 16px;min-height:40px}
+button.small{min-height:34px;padding:6px 12px;font-size:var(--fs-sm)}
+button.ghost{background:transparent;color:var(--text);border:1px solid var(--line2)}
+button.ghost:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+input,select{min-height:42px;border-radius:var(--rs);border-color:var(--line2)}
+select{font:inherit;padding-right:30px}
+label{font-weight:600;font-size:var(--fs-sm);color:var(--mute)}
+
+/* panels */
+.card,.pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.card.pad{padding:var(--s4)}
+.pcard.flat{background:var(--panel2)}
+
+/* pills and chips */
+.tag2{display:inline-flex;align-items:center;font-size:var(--fs-xs);line-height:18px;color:var(--mute);background:rgba(147,163,186,.07);border:1px solid var(--line);border-radius:var(--pill);padding:1px 9px}
+.tag2.host{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+.tag2.chip{color:var(--text);background:var(--panel2)}
+.tag2.fee{color:var(--amber);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.08)}
+.chipbtn{background:var(--panel);color:var(--mute);border:1px solid var(--line);border-radius:var(--pill);min-height:34px;padding:6px 14px;font-size:var(--fs-sm)}
+.chipbtn:hover:not(:disabled){filter:none;color:var(--text);border-color:var(--line2)}
+.chipbtn.on{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+
+/* room cards. Phones: a compact row. Wider: a card with the join button at the bottom. */
+#roomList,#communityList,#foundList,#rdList,#rdTrending{display:flex;flex-direction:column;gap:var(--s2)}
+.room{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3) var(--s4);gap:var(--s3);transition:border-color .15s,background .15s,transform .15s}
+.room:hover{border-color:var(--accent-line);background:var(--panel3)}
+.room .icon{width:44px;height:44px;font-size:20px;border-radius:var(--rs)}
+.room .info{gap:6px}
+.room .row1{flex-direction:column;align-items:flex-start;gap:2px}
+.room .nm{font-size:var(--fs-md);font-weight:650;color:var(--text);line-height:1.25}
+.room .stats{gap:var(--s2);font-size:var(--fs-sm);flex-wrap:wrap}
+.room .on{color:var(--green);font-weight:600}
+.room .lock{color:var(--violet)}
+.joinpill{background:var(--accent);color:var(--accent-ink);border-radius:var(--rs);padding:7px 16px;font-weight:700;font-size:var(--fs-sm)}
+.room:hover .joinpill{filter:brightness(1.1)}
+.room.locked{opacity:.7;border-style:dashed}
+.room.locked .joinpill{background:var(--violet-soft);color:#C4B5FD;border:1px solid rgba(139,92,246,.45)}
+.flames{font-size:9px;letter-spacing:2px}
+@media (min-width:700px){
+  #roomList,#communityList,#foundList,#rdList,#rdTrending{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--s3)}
+  #communityList .empty,#rdList .empty{grid-column:1/-1}
+  .room{display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto 1fr auto;grid-template-areas:"icon stats" "nm nm" "tags tags" "pill pill";align-items:center;gap:var(--s2) var(--s3);padding:var(--s4);text-align:left}
+  .room .info,.room .row1{display:contents}
+  .room .icon{grid-area:icon;width:48px;height:48px}
+  .room .stats{grid-area:stats;justify-self:end;justify-content:flex-end;text-align:right}
+  .room .nm{grid-area:nm;margin-top:var(--s1);font-size:var(--fs-lg)}
+  .room .tags{grid-area:tags;align-self:start;gap:var(--s1);min-height:22px}
+  .room .joinpill{grid-area:pill;justify-self:stretch;text-align:center;padding:9px 16px;margin-top:var(--s1)}
+}
+
+/* hub header with the room tools beside it */
+#communityHead{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s4);padding:0}
+#communityHead .tools{gap:var(--s2)}
+#findForm,#codeForm{margin:0}
+
+/* dialogs */
+.modal{background:rgba(3,6,12,.74);z-index:60}
+.modal>.pcard{max-width:520px;border-color:var(--line2);box-shadow:var(--shadow);background:var(--panel)}
+.modal .mtitle{font-size:var(--fs-lg);font-weight:700}
+.typecard{border-radius:var(--r);padding:var(--s3)}
+.typecard b{font-size:var(--fs-md)}
+#createRoom label,#rpPanel label{margin-top:var(--s1)}
+#createRoom .hint{margin-top:var(--s1)}
+#createRoom .row{margin-top:var(--s2)}
+#createRoom .row button[type=submit]{flex:1}
+
+/* phones and other touch screens: bigger targets */
+@media (pointer:coarse){
+  button,input,select{min-height:44px}
+  button.small{min-height:40px}
+  .chipbtn{min-height:40px}
+}
+
+/* text-like buttons stay inline-sized, even on touch screens */
+.who,.replybtn,button.link,.pts{min-height:0}
+@media (pointer:coarse){
+  .who,.replybtn{padding:6px 2px}
+  button.link{padding:8px 4px}
+}
+.room.locked .flames{display:none}
