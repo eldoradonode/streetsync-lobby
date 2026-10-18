@@ -202,7 +202,7 @@ func (s *store) unreadAndRequests(ctx context.Context, me int64) (unread, reques
 		`SELECT
 		   (SELECT count(*) FROM dm_messages m WHERE m.recipient_id = $1 AND m.read_at IS NULL
 		      AND NOT EXISTS (SELECT 1 FROM blocks b WHERE b.blocker = $1 AND b.blocked = m.sender_id)),
-		   (SELECT count(*) FROM friendships WHERE status = 'pending' AND requester <> $1 AND (user_a = $1 OR user_b = $1))`, me).Scan(&unread, &requests)
+		   (SELECT count(*) FROM friendships WHERE status = 'pending' AND requester <> $1 AND (user_a = $1 OR user_b = $1))`, me, me).Scan(&unread, &requests)
 	return
 }
 
