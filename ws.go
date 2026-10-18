@@ -178,11 +178,11 @@ func (h *hub) serveWS(w http.ResponseWriter, r *http.Request) {
 	h.attach(ou, cl, token)
 	defer h.detach(cl)
 	if !row.Welcomed {
-		go h.welcome(ou) // welcome credits, once per account
+		safeGo(func() { h.welcome(ou) }) // welcome credits, once per account
 	}
-	go h.sendBadgeTo(cl)     // unread messages and waiting friend requests
-	go h.sendNoteStateTo(cl) // unread notifications and my settings
-	go h.loadMemberships(ou) // rooms I own or was let into
+	safeGo(func() { h.sendBadgeTo(cl) })     // unread messages and waiting friend requests
+	safeGo(func() { h.sendNoteStateTo(cl) }) // unread notifications and my settings
+	safeGo(func() { h.loadMemberships(ou) }) // rooms I own or was let into
 	if in.R != "" {
 		h.enter(ctx, cl, in.R, in.L, "", "", nil) // a returning client names its room, so it lands back in it
 	}
@@ -190,7 +190,7 @@ func (h *hub) serveWS(w http.ResponseWriter, r *http.Request) {
 	isMod := roleRank(ou.role) >= 2
 	h.mu.Unlock()
 	if isMod {
-		go h.sendReportCountTo(cl)
+		safeGo(func() { h.sendReportCountTo(cl) })
 	}
 
 	go h.writeLoop(ctx, cancel, conn, cl)
