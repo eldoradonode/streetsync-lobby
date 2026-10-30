@@ -1,0 +1,20 @@
+=== STEP 15 baseline ===
+first visit, Accept-Encoding='identity': 233910 bytes
+first visit, Accept-Encoding='gzip': 71627 bytes
+first visit, Accept-Encoding='br': 233910 bytes
+first visit, Accept-Encoding='gzip, br': 71627 bytes
+  / enc=gzip cache-control='no-cache' conditional -> 304 0B
+  /assets/app-BIjW_KqG.js enc=gzip cache-control='public, max-age=31536000, immutable' conditional -> 304 0B
+  /assets/main-CRffV6se.css enc=gzip cache-control='public, max-age=31536000, immutable' conditional -> 304 0B
+healthz latency over 200 requests: p50=0.5ms p95=0.8ms p99=0.9ms
+page latency over 200 requests: p50=0.5ms p95=0.8ms p99=0.9ms
+=== STEP 16 ===
+first visit, Accept-Encoding='identity': 252358 bytes
+first visit, Accept-Encoding='gzip': 77683 bytes
+first visit, Accept-Encoding='br': 66850 bytes
+first visit, Accept-Encoding='gzip, br': 66850 bytes
+  / enc=br cache-control='no-cache' conditional -> 304 0B
+  /assets/app-QWqEHzS0.js enc=br cache-control='public, max-age=31536000, immutable' conditional -> 304 0B
+  /assets/main-CG09AndG.css enc=br cache-control='public, max-age=31536000, immutable' conditional -> 304 0B
+healthz latency over 200 requests: p50=0.5ms p95=0.7ms p99=0.8ms
+page latency over 200 requests: p50=0.5ms p95=0.6ms p99=0.7ms

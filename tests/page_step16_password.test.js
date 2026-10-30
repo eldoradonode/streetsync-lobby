@@ -1,0 +1,38 @@
+const { check, signed, sub, typeInto, done } = require('./helpers16');
+
+(async () => {
+  let t = signed();
+  t.$('tabSettings').click();
+  const old = t.$('setOldPw'), neu = t.$('setNewPw'), eyeO = t.$('setOldPwEye'), eyeN = t.$('setNewPwEye');
+  check('both password fields have an eye button', !!eyeO && !!eyeN);
+  check('both fields start hidden', old.type === 'password' && neu.type === 'password');
+  check('the eye buttons are real buttons that do not submit the form', eyeO.tagName === 'BUTTON' && eyeO.type === 'button' && eyeN.type === 'button');
+  check('they have accessible names and pressed state', /Show/.test(eyeO.getAttribute('aria-label')) && eyeO.getAttribute('aria-pressed') === 'false' && eyeO.getAttribute('aria-controls') === 'setOldPw');
+  typeInto(t, old, 'old password 1'); typeInto(t, neu, 'a new password 2');
+  eyeO.click();
+  check('the current-password eye shows only the current password', old.type === 'text' && neu.type === 'password');
+  check('its label and state change', /Hide/.test(eyeO.getAttribute('aria-label')) && eyeO.getAttribute('aria-pressed') === 'true');
+  check('the other eye is untouched', eyeN.getAttribute('aria-pressed') === 'false');
+  eyeN.click();
+  check('the new-password eye shows only the new password', old.type === 'text' && neu.type === 'text');
+  eyeO.click();
+  check('hiding the current password leaves the new one visible', old.type === 'password' && neu.type === 'text');
+  eyeN.click();
+  check('both can be hidden again', old.type === 'password' && neu.type === 'password');
+  check('toggling keeps what was typed', old.value === 'old password 1' && neu.value === 'a new password 2');
+  t.s.sent.length = 0;
+  eyeO.click(); eyeN.click();
+  check('clicking an eye sends nothing to the server', t.s.sent.length === 0);
+  check('the eye is inside the field wrapper, one per field', t.d.querySelectorAll('#setPwForm .pwfield').length === 2 && t.d.querySelectorAll('#setPwForm .pweye').length === 2);
+  sub(t, t.$('setPwForm'));
+  check('submitting still sends the change', JSON.stringify(t.s.sent.pop()) === JSON.stringify({ t: 'pwchange', o: 'old password 1', p: 'a new password 2' }));
+  check('values are cleared after sending', old.value === '' && neu.value === '');
+  t.s.recv({ t: 'err', c: 'same_password' });
+  check('same_password has a clear message', t.$('status').textContent.includes('different'), t.$('status').textContent);
+  t.s.sent.length = 0;
+  typeInto(t, old, 'x'); typeInto(t, neu, 'short'); sub(t, t.$('setPwForm'));
+  check('a short new password is refused client side', t.s.sent.length === 0);
+  typeInto(t, old, ''); typeInto(t, neu, 'long enough pw'); sub(t, t.$('setPwForm'));
+  check('an empty current password is refused client side', t.s.sent.length === 0);
+  done();
+})();

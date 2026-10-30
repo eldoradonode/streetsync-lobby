@@ -1,0 +1,65 @@
+/* Step 19: pinned message, reactions, polls. Same tokens as the rest of the app. */
+#pinbar{margin:6px 12px 0;border:1px solid var(--accent-line);background:var(--accent-soft);border-radius:var(--rs)}
+#pinbar .pinrow{display:flex;align-items:center}
+#pinbar .pinmain{flex:1;min-width:0;display:flex;gap:var(--s2);align-items:center;text-align:left;background:none;border:0;color:var(--text);padding:6px 10px;font-size:var(--fs-sm)}
+#pinbar .pintext{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#pinbar .pinx{padding:4px 10px;min-width:36px}
+#pinbar .pinfull{padding:0 10px 8px 32px;font-size:var(--fs-sm);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
+
+.rxbar{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;align-items:center}
+.rxchip,.rxadd{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:var(--pill);padding:1px 8px;font-size:var(--fs-sm);line-height:22px;min-height:26px}
+.rxchip.on{border-color:var(--accent);background:var(--accent-soft)}
+.rxchip span{margin-left:3px;color:var(--mute);font-size:var(--fs-xs)}
+.rxadd{color:var(--mute);opacity:.75}
+.rxadd:hover,.rxadd:focus-visible{opacity:1}
+.rxpick{display:flex;gap:2px;margin-top:4px;padding:3px;background:var(--panel3);border:1px solid var(--line2);border-radius:var(--rl);width:max-content;max-width:100%}
+.rxpick button{background:none;border:0;font-size:22px;min-width:40px;min-height:40px;border-radius:var(--pill)}
+.rxpick button.on{background:var(--accent-soft)}
+
+#pollbox{margin:6px 12px 0}
+.pollcard{border:1px solid var(--line2);background:var(--panel);border-radius:var(--rs);overflow:hidden}
+.pollcard.closed{opacity:.9}
+.pollhead{width:100%;display:flex;gap:var(--s2);align-items:center;text-align:left;background:none;border:0;color:var(--text);padding:8px 10px;font-size:var(--fs-sm)}
+.pollq{flex:1;min-width:0;font-weight:700;overflow-wrap:anywhere}
+.pollstate{font-size:var(--fs-xs);color:var(--accent)}
+.pollopts{display:grid;gap:4px;padding:0 8px}
+.popt{position:relative;display:flex;justify-content:space-between;gap:var(--s2);align-items:center;overflow:hidden;text-align:left;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:var(--rs);padding:9px 10px;min-height:40px;font-size:var(--fs-sm)}
+.popt.mine{border-color:var(--accent)}
+.popt:disabled{opacity:1;cursor:default}
+.popt .pbar{position:absolute;inset:0 auto 0 0;background:var(--accent-soft);transition:width .25s}
+.popt .plabel,.popt .pnum{position:relative}
+.popt .plabel{overflow-wrap:anywhere}
+.popt .pnum{white-space:nowrap;font-weight:700}
+.popt .pnum small{color:var(--mute);font-weight:400}
+.pollfoot{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);padding:6px 10px 8px;color:var(--mute)}
+.pollnew{margin-top:6px}
+.pollform{display:grid;gap:6px;margin-top:6px;padding:8px;border:1px solid var(--line2);border-radius:var(--rs);background:var(--panel)}
+.polloptrow{display:flex;gap:6px}
+.polloptrow input{flex:1;min-width:0}
+.pollerr{color:var(--bad);font-size:var(--fs-sm)}
+.pollbtns{display:flex;gap:var(--s2)}
+@media (prefers-reduced-motion:reduce){.popt .pbar{transition:none}}
+
+/* Step 20: favourites, sort, member list */
+.roomwrap{position:relative}
+.favbtn{position:absolute;top:6px;right:8px;background:none;border:0;color:var(--mute);font-size:20px;line-height:1;min-width:44px;min-height:44px;padding:0;border-radius:var(--pill)}
+.favbtn.on{color:var(--accent)}
+.roomwrap .room{padding-right:52px}
+.roomtools{margin-left:auto;display:flex;gap:6px}
+.roomtools .on{border-color:var(--accent);background:var(--accent-soft)}
+#roomState{display:flex;align-items:center;gap:var(--s2)}
+.sortlabel{font-size:var(--fs-xs);color:var(--mute);align-self:center;margin-right:4px}
+#members.sheet{position:fixed;inset:auto 0 0 0;max-height:70vh;display:flex;flex-direction:column;background:var(--panel);border-top:1px solid var(--line2);border-radius:var(--rl) var(--rl) 0 0;z-index:30;box-shadow:0 -8px 24px rgba(0,0,0,.35);padding-bottom:env(safe-area-inset-bottom,0px)}
+#members .sheethead{display:flex;align-items:center;gap:var(--s2);padding:10px 12px;border-bottom:1px solid var(--line)}
+#members .sheethead h3{margin:0}
+#members .mcount{flex:1;color:var(--mute);font-size:var(--fs-sm)}
+#members .mbody{overflow-y:auto;padding:4px 8px 12px}
+.msec{font-size:var(--fs-xs);color:var(--mute);text-transform:uppercase;letter-spacing:.04em;padding:10px 6px 4px}
+.mlist{list-style:none;margin:0;padding:0}
+.mrow{width:100%;display:flex;align-items:center;gap:var(--s2);text-align:left;background:none;border:0;color:var(--text);padding:6px;border-radius:var(--rs);min-height:44px}
+.mname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mstat{font-size:var(--fs-xs);white-space:nowrap}
+.mstat.st-on{color:var(--ok,var(--accent))}
+.mstat.st-off,.mstat.st-hid{color:var(--mute)}
+.mmark{display:inline-block;width:1em;text-align:center}
+@media (min-width:900px){#members.sheet{inset:60px 12px auto auto;width:340px;max-height:calc(100vh - 140px);border-radius:var(--rl);border:1px solid var(--line2)}}

@@ -1,0 +1,26 @@
+{
+  "src/components/StaffArea.svelte": {
+    "file": "assets/StaffArea-CVtlEnwr.js",
+    "name": "StaffArea",
+    "src": "src/components/StaffArea.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.js"
+    ],
+    "css": [
+      "assets/StaffArea-BMKFGtw_.css"
+    ]
+  },
+  "src/main.js": {
+    "file": "assets/app-CXktBB4m.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/components/StaffArea.svelte"
+    ],
+    "css": [
+      "assets/main-CbzwfDBk.css"
+    ]
+  }
+}

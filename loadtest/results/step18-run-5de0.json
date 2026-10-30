@@ -1,0 +1,294 @@
+{
+  "config": {
+    "churn_interval": "8s",
+    "connect_rate_per_s": 50,
+    "dm_interval": "8s",
+    "drop_per_min": 0.3,
+    "go_version": "go1.22.2",
+    "msg_interval": "3s",
+    "query_interval": "6s",
+    "rooms": [
+      "lobby",
+      "abuja",
+      "lagos",
+      "campus",
+      "football",
+      "music",
+      "tech",
+      "side-hustle",
+      "creators"
+    ],
+    "stage_duration": "30s",
+    "stages": [
+      100,
+      300
+    ]
+  },
+  "environment": {
+    "go": "go1.22.2",
+    "os_arch": "linux/amd64",
+    "cpus": 1,
+    "gomaxprocs": 1,
+    "cgroup_cpu_max": "n/a",
+    "cgroup_memory_max": "n/a",
+    "mem_total": "4091696 kB",
+    "client_nofile_limit": 20000,
+    "postgres_version": "PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit",
+    "postgres_max_connections": "100",
+    "postgres_shared_buffers": "128MB",
+    "server_process": "pid 1859 (lobby-test)"
+  },
+  "finished": "2026-10-28T09:21:19Z",
+  "run_id": "5de0",
+  "stages": [
+    {
+      "stage": 100,
+      "verdict": "PASS",
+      "reasons": [],
+      "window": "30s",
+      "live_clients_at_end": 99,
+      "ramp": {
+        "auth_failures": 0,
+        "connect_attempts": 99,
+        "connect_ok": 99,
+        "connect_success": 1,
+        "connection_errors": {},
+        "duration": "2.005s",
+        "error_codes": {}
+      },
+      "metrics": {
+        "auth_failures": 0,
+        "connect_attempts": 13,
+        "connect_ok": 13,
+        "connect_success": 1,
+        "deliveries_expected_approx": 10388,
+        "deliveries_seen": 10388,
+        "delivery_ratio_approx": 1,
+        "dms_confirmed": 3,
+        "dms_sent": 3,
+        "drops_injected": 13,
+        "echo_success": 1,
+        "joins": 327,
+        "joins_confirmed": 339,
+        "leaves": 331,
+        "messages_echoed": 986,
+        "messages_sent": 986,
+        "queries": 463,
+        "queries_confirmed": 463,
+        "reconnect_attempts": 12,
+        "reconnect_ok": 12,
+        "reconnect_success": 1,
+        "server_busy": 0,
+        "server_busy_rate": 0,
+        "unexpected_disconnects": 0
+      },
+      "resources": {
+        "generator_cpu_percent_of_one_core": 3.43,
+        "generator_goroutines_max": 305,
+        "generator_rss_mb_max": 15.59,
+        "generator_rss_mb_start_end": [
+          13.59,
+          15.59
+        ],
+        "generator_scheduler_lag_max_ms": 1.04,
+        "generator_scheduler_lag_p95_ms": 1.01,
+        "host_cpu_busy_percent_all_cores": 11.06,
+        "postgres_active_max": 1,
+        "postgres_connections_max": 3,
+        "postgres_deadlocks_in_window": 0,
+        "postgres_lock_waiters_max": 0,
+        "postgres_rollbacks_in_window": 0,
+        "samples": 15,
+        "server_cpu_percent_of_one_core": 3.39,
+        "server_fds_max": 109,
+        "server_process_alive_at_end": true,
+        "server_rss_growth_mb_per_min": -19.2,
+        "server_rss_mb_max": 100.64,
+        "server_rss_mb_start_end": [
+          92.2,
+          83.23
+        ],
+        "server_threads_max": 8
+      },
+      "bottleneck": "none observed at this level",
+      "error_codes": {},
+      "connection_errors": {},
+      "latency": {
+        "auth": {
+          "samples": 13,
+          "p50_ms": 6.091136,
+          "p95_ms": 9.895638,
+          "p99_ms": 9.895638,
+          "max_ms": 18.226832
+        },
+        "connect": {
+          "samples": 13,
+          "p50_ms": 0.788061,
+          "p95_ms": 3.264964,
+          "p99_ms": 3.264964,
+          "max_ms": 5.589137
+        },
+        "message_delivery": {
+          "samples": 10388,
+          "p50_ms": 0.591219,
+          "p95_ms": 1.247859,
+          "p99_ms": 2.578599,
+          "max_ms": 4.955817
+        },
+        "message_echo_roundtrip": {
+          "samples": 986,
+          "p50_ms": 0.572801,
+          "p95_ms": 1.233909,
+          "p99_ms": 2.522683,
+          "max_ms": 3.399848
+        },
+        "reconnect_recovery": {
+          "samples": 12,
+          "p50_ms": 564.851191,
+          "p95_ms": 709.94556,
+          "p99_ms": 709.94556,
+          "max_ms": 727.997847
+        }
+      },
+      "thresholds": {
+        "max_busy_rate": 0.005,
+        "max_p95_ms": 1000,
+        "max_p99_ms": 3000,
+        "min_connect_success": 0.99,
+        "min_delivery": 0.97,
+        "min_echo_success": 0.99,
+        "min_reconnect_success": 0.98
+      }
+    },
+    {
+      "stage": 300,
+      "verdict": "PASS",
+      "reasons": [],
+      "window": "30s",
+      "live_clients_at_end": 299,
+      "ramp": {
+        "auth_failures": 0,
+        "connect_attempts": 200,
+        "connect_ok": 200,
+        "connect_success": 1,
+        "connection_errors": {},
+        "duration": "4s",
+        "error_codes": {}
+      },
+      "metrics": {
+        "auth_failures": 0,
+        "connect_attempts": 52,
+        "connect_ok": 52,
+        "connect_success": 1,
+        "deliveries_expected_approx": 96052,
+        "deliveries_seen": 96011,
+        "delivery_ratio_approx": 1,
+        "dms_confirmed": 12,
+        "dms_sent": 12,
+        "drops_injected": 52,
+        "echo_success": 1,
+        "joins": 1047,
+        "joins_confirmed": 1098,
+        "leaves": 1049,
+        "messages_echoed": 2959,
+        "messages_sent": 2960,
+        "queries": 1443,
+        "queries_confirmed": 1443,
+        "reconnect_attempts": 51,
+        "reconnect_ok": 51,
+        "reconnect_success": 1,
+        "server_busy": 0,
+        "server_busy_rate": 0,
+        "unexpected_disconnects": 0
+      },
+      "resources": {
+        "generator_cpu_percent_of_one_core": 12.54,
+        "generator_goroutines_max": 905,
+        "generator_rss_mb_max": 29.46,
+        "generator_rss_mb_start_end": [
+          24.27,
+          29.46
+        ],
+        "generator_scheduler_lag_max_ms": 1.72,
+        "generator_scheduler_lag_p95_ms": 1.61,
+        "host_cpu_busy_percent_all_cores": 41.53,
+        "postgres_active_max": 1,
+        "postgres_connections_max": 3,
+        "postgres_deadlocks_in_window": 0,
+        "postgres_lock_waiters_max": 0,
+        "postgres_rollbacks_in_window": 1,
+        "samples": 15,
+        "server_cpu_percent_of_one_core": 14.64,
+        "server_fds_max": 309,
+        "server_process_alive_at_end": true,
+        "server_rss_growth_mb_per_min": 5.39,
+        "server_rss_mb_max": 44.32,
+        "server_rss_mb_start_end": [
+          41.65,
+          44.17
+        ],
+        "server_threads_max": 9
+      },
+      "bottleneck": "none observed at this level",
+      "error_codes": {},
+      "connection_errors": {},
+      "latency": {
+        "auth": {
+          "samples": 52,
+          "p50_ms": 6.842652,
+          "p95_ms": 23.401012,
+          "p99_ms": 43.99707,
+          "max_ms": 60.37519
+        },
+        "connect": {
+          "samples": 52,
+          "p50_ms": 0.923922,
+          "p95_ms": 2.896262,
+          "p99_ms": 9.230335,
+          "max_ms": 19.682001
+        },
+        "message_delivery": {
+          "samples": 96011,
+          "p50_ms": 1.229805,
+          "p95_ms": 5.206322,
+          "p99_ms": 13.791228,
+          "max_ms": 126.104619
+        },
+        "message_echo_roundtrip": {
+          "samples": 2959,
+          "p50_ms": 1.21456,
+          "p95_ms": 5.386902,
+          "p99_ms": 13.123588,
+          "max_ms": 125.127235
+        },
+        "reconnect_recovery": {
+          "samples": 51,
+          "p50_ms": 566.618588,
+          "p95_ms": 725.730711,
+          "p99_ms": 755.39637,
+          "max_ms": 758.585776
+        }
+      },
+      "thresholds": {
+        "max_busy_rate": 0.005,
+        "max_p95_ms": 1000,
+        "max_p99_ms": 3000,
+        "min_connect_success": 0.99,
+        "min_delivery": 0.97,
+        "min_echo_success": 0.99,
+        "min_reconnect_success": 0.98
+      }
+    }
+  ],
+  "started": "2026-10-28T09:20:13Z",
+  "target": "ws://127.0.0.1:8110/ws",
+  "thresholds": {
+    "max_busy_rate": 0.005,
+    "max_p95_ms": 1000,
+    "max_p99_ms": 3000,
+    "min_connect_success": 0.99,
+    "min_delivery": 0.97,
+    "min_echo_success": 0.99,
+    "min_reconnect_success": 0.98
+  }
+}

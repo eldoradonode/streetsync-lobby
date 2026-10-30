@@ -1,0 +1,87 @@
+/* Step 15 additions. Uses the existing tokens only. */
+.roomwrap{display:flex;flex-direction:column;gap:4px}
+.roomwrap .roomacts{display:flex;gap:8px;flex-wrap:wrap;padding:0 4px 4px}
+.roomwrap .descr,.room .descr{display:block;color:var(--mute);font-size:var(--fs-sm);line-height:1.35;margin-top:2px;overflow-wrap:anywhere}
+.joinpill.on{color:var(--accent);border:1px solid var(--accent);background:var(--accent-soft)}
+.joinpill.busy{opacity:.7}
+#roomState{padding:4px 12px 0}
+#roomState .joinpill{display:inline-block;padding:3px 10px;font-size:var(--fs-sm);background:transparent;color:var(--mute);border:1px solid var(--line)}
+#roomState .joinpill.on{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.tabs2{display:flex;gap:8px;margin:var(--s2) 0}
+.featured,.cattiles{display:grid;gap:8px}
+.cattiles{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.cattile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.cattile small{color:var(--mute)}
+.cattile:hover{border-color:var(--accent-line)}
+.ulist2{display:flex;flex-direction:column;gap:8px}
+.urow{display:flex;align-items:center;gap:10px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;text-align:left}
+.urow:hover{border-color:var(--accent-line)}
+.sheetform textarea{width:100%;min-height:72px}
+.sheetform .reasons{display:flex;flex-wrap:wrap;gap:8px;margin:var(--s2) 0}
+.errtext{color:var(--red,#f87171);font-size:var(--fs-sm)}
+.dangerzone{border-color:rgba(248,113,113,.45)}
+.mgr h3{margin:var(--s3) 0 var(--s1)}
+.mgr .mrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0;border-top:1px solid var(--line)}
+.mgr .mrow .grow{flex:1;min-width:120px}
+.bioline{margin:6px 0;color:var(--text);overflow-wrap:anywhere;text-align:center}
+
+/* Password fields with a show/hide eye (Settings). The eye sits inside the field and keeps a 44px touch target. */
+.pwfield{position:relative;display:flex;align-items:center}
+.pwfield input{width:100%;padding-right:48px}
+.pweye{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:var(--mute);cursor:pointer;border-radius:8px}
+.pweye:hover{color:var(--text,inherit)}
+.pweye:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+
+/* Encrypted messages: status strip, safety code, report picker */
+.esec{padding:6px 12px}
+.esec p{margin:4px 0}
+.safety{font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em;word-spacing:.3em;line-height:1.7;margin:6px 0;overflow-wrap:anywhere}
+.safetybox{padding:8px 0}
+.bubble.undecryptable{opacity:.75}
+.pickmsgs{list-style:none;margin:8px 0;padding:0;max-height:220px;overflow:auto}
+.pickmsgs li{padding:6px 0;border-bottom:1px solid var(--line,rgba(128,128,128,.25))}
+.pickmsgs label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pickmsgs input{margin-top:3px;min-width:20px;min-height:20px}
+
+/* ---- Step 17 ---- */
+/* Create room description: a visible, styled multiline field with its counter inside, bottom right. */
+.descwrap{position:relative}
+.modal textarea#crDesc{display:block;width:100%;box-sizing:border-box;min-height:80px;max-height:160px;resize:none;overflow-y:auto;background:var(--input);color:var(--text);border:1px solid var(--line2);border-radius:var(--rs);padding:var(--s3) var(--s3) 26px;font:inherit;font-size:16px;line-height:1.4}
+.modal textarea#crDesc:focus{outline:2px solid var(--accent-line);border-color:var(--accent)}
+.desccount{position:absolute;right:10px;bottom:6px;font-size:12px;color:var(--mute);pointer-events:none}
+.desccount.full{color:var(--warn,#e0a040)}
+.modal>.pcard{scroll-padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+
+/* Search: results must stay tappable while the keyboard is open. */
+#rdSearch{font-size:16px;touch-action:manipulation}
+#roomsDir .urow,#roomsDir .room{touch-action:manipulation}
+#roomsDir{scroll-padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+
+/* Direct message ticks. Grey while sent or delivered, accent colour once read. */
+.ticks{font-size:11px;letter-spacing:-3px;margin-left:6px;color:var(--mute);user-select:none}
+.ticks.t3{color:var(--accent)}
+#leaveRoomBtn{white-space:nowrap}
+/* The Leave room button sits in the room header next to the online count: keep the title shrinkable on narrow phones. */
+#shell.inroom .screen header .hl{min-width:0;flex:1 1 auto}
+#shell.inroom #title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+#leaveRoomBtn{padding:6px 10px;font-size:13px;flex:0 0 auto}
+
+/* Step 18: presence under the handle in the conversation header */
+.tname{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.pres{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-sm);color:var(--mute);line-height:1.1}
+.pres .pdot{width:8px;height:8px;border-radius:50%;background:#8b949e}
+.pres.on{color:var(--green)}
+.pres.on .pdot{background:var(--green)}
+
+/* Step 18: profile photos */
+.av .avphoto{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.photoed{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.cropbox{position:relative;overflow:hidden;border-radius:50%;background:#222;touch-action:none;cursor:grab;max-width:100%}
+.cropbox img{position:absolute;left:0;top:0;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.cropring{position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 2px var(--accent)}
+.zoomrow{display:flex;align-items:center;gap:10px;font-size:var(--fs-sm);color:var(--mute);max-width:300px}
+.zoomrow input{flex:1}
+.av:has(.avphoto){overflow:hidden}
+.chatrow.unread .cbody b,.chatrow.unread .cbody small{color:var(--text);font-weight:700}
+.chatrow time{flex-shrink:0}
+.chatrow .badge{flex-shrink:0}

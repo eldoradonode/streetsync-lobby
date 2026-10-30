@@ -1,0 +1,15 @@
+{
+  "aliceD": "kPLg03JSOJPmbzb2SdoiDSxg8GF8FyUO2kpztMFwsTE=",
+  "alicePub": "BLVXOLa0Pu1VrfFryYMpMC1hvevPl3LoFCjygBsbV6KND49rfZP21aHAu4Oamw+sLPRzYBYbt7mEFpRycgbIjIs=",
+  "bobD": "IqDar+JuimFqmXyOfPCtQW0U4pgnRjotUhkr5mE2fdI=",
+  "bobPub": "BISG5OEpt3yu+EV03UoYTqtTcHexgms8WP1Vk+mHTO2SkZRnTIHd521dWNYygNxQ6YRsklvopNkPNuKGvxJBT9I=",
+  "plain": "Interop vector: héllo ✓ 123",
+  "env": {
+    "v": 1,
+    "n": "1PqnZn/3lOCFSEP5",
+    "c": "6xZQ2tnS4p+LUl7ILV5TdzDRvn2a+/gT6IynTGHH02s/dCaEh3vZhuxR8BCuKg==",
+    "mid": "3NXrbTqIRJYcZdDem6iG0g",
+    "sf": "38aa6c4deca2188b7573d8d46855ba24e47c1e8e0c1a9693e14c415c22aaeb5f",
+    "rf": "e8cb4bc18fb873ff7429eceebf0141fa98952f837a5dd8238ed91dcce25f3393"
+  }
+}
